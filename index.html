@@ -10,107 +10,132 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #f8efd4 0%, #f2dbc1 40%, #fde4c7 100%);
       font-family: 'Poppins', sans-serif;
       color: #333;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('torqbackground.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .overlay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
     }
 
     .container {
       max-width: 700px;
-      margin: 60px auto;
-      background: #fff;
+      background: rgba(255,255,255,0.85);
       border-radius: 8px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      overflow: hidden;
-      padding: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
       position: relative;
+      padding: 30px 20px; 
+      text-align: center;
+      margin-top: 60px;
+      animation: fadeIn 1.5s ease forwards;
+      opacity: 0;
     }
 
-    .container::before {
-      content: "";
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.5) 0%, transparent 70%);
-      transform: rotate(45deg);
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     .header {
-      text-align: center;
-      margin-bottom: 30px;
+      position: relative;
+      margin-bottom: 20px; 
+    }
+
+    .logo {
+      max-width: 50px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 10px; 
+      border-radius: 50%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
     h1 {
       font-family: 'Lobster', cursive;
-      font-size: 3em;
+      font-size: 2.5em; 
       margin: 0;
       color: #b33f3f;
       text-shadow: 1px 1px 0 #fff;
     }
 
     .tagline {
-      font-size: 1.1em;
-      color: #666;
-      margin-top: 10px;
+      font-size: 1em;
+      color: #555;
+      margin-top: 5px; 
       letter-spacing: 0.5px;
+      font-weight: 400;
     }
 
     hr {
       border: none;
       border-top: 2px solid #f2dbc1;
       width: 60%;
-      margin: 20px auto 40px;
+      margin: 20px auto; 
     }
 
-    img {
+    .menuimg {
       display: block;
       max-width: 100%;
       height: auto;
-      margin: 0 auto 30px;
-      border: 5px solid #f2dbc1;
+      margin: 20px auto 20px; 
+      border: 5px solid rgba(0,0,0,0.1); 
       border-radius: 4px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    img:hover {
+    .menuimg:hover {
       transform: scale(1.02);
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
     .footer-note {
-      text-align: center;
       font-size: 0.9em;
-      color: #999;
-      margin-top: 40px;
+      color: #777;
+      margin-top: 20px;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 500px) {
       h1 {
-        font-size: 2.2em;
+        font-size: 2em;
       }
       .tagline {
-        font-size: 1em;
+        font-size: 0.9em;
       }
       .container {
         margin: 40px 10px;
       }
+      .logo {
+        max-width: 80px;
+      }
     }
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Torq's Menu</h1>
-      <p class="tagline">Artistry in Motorsport</p>
-    </div>
-    <hr />
-    <img src="torq.JPG" alt="Menu" />
-    <div class="footer-note">
-      © 2024 Torq • Crafted with Love
+  <div class="overlay">
+    <div class="container">
+      <div class="header">
+        <img class="logo" src="torqlogo.jpg" alt="Torq Logo" />
+        <h1>Torq's Menu</h1>
+        <p class="tagline">Artistry in Motorsport</p>
+      </div>
+      <hr />
+      <img class="menuimg" src="torq.JPG" alt="Menu" />
+      <div class="footer-note">
+        © 2024 Torq • Crafted with Love
+      </div>
     </div>
   </div>
 </body>
